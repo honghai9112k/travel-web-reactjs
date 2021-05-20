@@ -5,7 +5,6 @@ import {menuData} from '../../data/MenuData';
 import { HButton } from '../base/HButton';
 import {VscMenu}  from 'react-icons/vsc';
 import {RiArrowRightSFill} from 'react-icons/ri'
-import './NavBar.css';
 
 
 const Logo = styled(Link)`
@@ -55,8 +54,7 @@ const BaseList=css`
     min-width: 180px;
     list-style-type:none;
     box-shadow:0px 2px 5px #f1f1f1 ;
-    transform: rotateX(-90deg);
-    transition:all 0.2s ease-in-out;
+    z-index: 100;
     &:first-child {
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
@@ -65,28 +63,25 @@ const BaseList=css`
         border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
     }
-    z-index: 100;
+    transition:all 0.1s ease-in-out;
 
+    display: none;
 `
 
 
 const ChildrenList = styled.ul`
     ${BaseList}
     left:calc(100% + 2px);
-    /* padding:10px; */
     top:0;
     
 `
 
 const MainList = styled.ul`
     ${BaseList}
-    display:flex;
-    flex-direction:column;
+
     padding-inline-start:0px;
-    /* padding:10px; */
     margin-top:15px;
     
-    /* overflow: hidden; */
     &:before{
         content:"";
         position: absolute;
@@ -112,22 +107,22 @@ const ItemParent = styled.li`
     ${BaseItem}
     justify-content:space-between;
     background-color:#fff;
-    transition:all 0.3s;
     padding: 14px;
+    border-radius: 4px;
+
     &:not(:last-child){
         border-bottom: 1px solid #f1f1f1;
     };
 
     &:hover{
         background-color: #f9f9f9;
-        transform: rotateX(0deg);
 
         &>${ChildrenList}{
-            transform: rotateX(0);
+            display: block;
         }
-        border-radius: 4px;
-
     } 
+        
+    /* transition:all 0.1s ease-in-out; */
 
 `
 
@@ -138,12 +133,11 @@ const LinkItem = styled.a`
     letter-spacing: 2px;
 
     &:not(:last-child){
-        border-bottom: 1px red;
+        border-bottom: 1px solid #f1f1f1
     };
     &:hover{
         border-radius: 4px;
         background-color: #f9f9f9;
-        transform: rotateX(0deg);
     };
 `
 
@@ -157,8 +151,12 @@ const RootItem = styled.li`
     color: #fff;
     font-family: 'Poppins', sans-serif;
     
+    &:hover {
+        color: #ccc;
+    }
     &:hover ${MainList}{
-        transform: rotateX(0);
+        display:flex;
+        flex-direction:column;
     } ;
 
 `
@@ -167,14 +165,13 @@ const MenuBarIcon = styled(VscMenu)`
     height: 30px;
     width: 30px;
     cursor: pointer;
-    transform: translate(-50%, 25%);
     color: #fff;
     &:hover {
         opacity: 0.8 ;
     }
-    margin: -14px -4px 8px;
+    margin: 4px 2px 5px;
     @media screen and (max-width: 1078px) {
-        margin: -6px 0 0 83px;
+        margin: 2px 0 -18px 84px;
     }
 
 `
@@ -246,20 +243,28 @@ const RecursiveNav = ({ data, index }) => {
 // TH2: map qua nếu type == 'parent' thì ---> ItemParent = ul (chứa các item cấp 2)---> map tiếp... nếu chứa tiếp
 // type== parent thì sẽ có cấp 3...(đệ quy). 
 
+const rootItemData = [
+    {id:"home", content:"HOME" ,hasChildren: ""},
+    {id:"packages", content:"PACKAGES", hasChildren: "yes" },
+    {id:"shop", content:"SHOP", hasChildren: "yes" },
+    {id:"aboutUs", content:"ABOUT US", hasChildren: "yes" },
+    {id:"pages", content:"PAGES", hasChildren: "yes" },
+    {id:"news", content:"NEWS", hasChildren: "yes" },
+    {id:"contact", content:"Contact", hasChildren: "yes" },
+]
 
 export const NavBar = (props) => {
 
-    const { currentTab } = props
-    const [selectedTab, setSelectedTab] = useState(currentTab)
+    // const { currentTab } = props
+    // const [selectedTab, setSelectedTab] = useState(currentTab)
 
-    const handleOver = selectTab => event => {
-        setSelectedTab(selectTab);
-    }
+    // const handleOver = selectTab => event => {
+    //     setSelectedTab(selectTab);
+    // }
 
-    const handleMouseOut = (event) => {
-        setSelectedTab(currentTab);
-    }
-
+    // const handleMouseOut = (event) => {
+    //     setSelectedTab(currentTab);
+    // }
 
     return (
         <>
@@ -268,86 +273,23 @@ export const NavBar = (props) => {
                     <Logo to="/" ><img style={{height:"38px", width: "160px"}} src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/logo.png" /></Logo>
 
                     <ListContainer>
+                        {rootItemData.map((item,index)=>{
+                            return (
+                                <RootItem 
+                                    // active={currentTab === item.id }
+                                    // onMouseOver={handleOver(item.id)}
+                                    // onMouseLeave={handleMouseOut}
+                                >
+                                    {item.content}
+                                    {item.hasChildren && 
+                                        <MainList >
+                                            <RecursiveNav data={menuData[item.id]} index={0} />
+                                        </MainList>
+                                    }
 
-                        <RootItem 
-                            active={currentTab === "home"} 
-                            onClick={handleOver("home")}
-                            onMouseOver={handleOver(0)}
-                        >
-                            HOME
-                        </RootItem>
-
-                        <RootItem 
-                            active={currentTab === "packages"}
-                            onMouseOver={handleOver("packages")}
-                            onMouseLeave={handleMouseOut}
-                        >
-                            PACKAGES
-                            <MainList className={selectedTab == 0 ? "active" : ""}>
-                                <RecursiveNav data={menuData['packages']} index={0} />
-                            </MainList>
-
-                        </RootItem>
-
-                        <RootItem 
-                            active={currentTab === "shop"}
-                            onMouseOver={handleOver("shop")}
-                            onMouseLeave={handleMouseOut}
-                        >
-                            SHOP
-                            <MainList className={selectedTab == 0 ? "active" : ""}>
-                                <RecursiveNav data={menuData['shop']} index={0} />
-                            </MainList>
-
-                        </RootItem>
-
-                        <RootItem 
-                            active={currentTab === "aboutUs"}
-                            onMouseOver={handleOver("aboutUs")}
-                            onMouseLeave={handleMouseOut}
-                        >
-                            ABOUT US
-                            <MainList className={selectedTab == 0 ? "active" : ""}>
-                                <RecursiveNav data={menuData['aboutUs']} index={0} />
-                            </MainList>
-
-                        </RootItem>
-
-                        <RootItem 
-                            active={currentTab === "pages"}
-                            onMouseOver={handleOver("pages")}
-                            onMouseLeave={handleMouseOut}
-                        >
-                            PAGES
-                            <MainList className={selectedTab == 0 ? "active" : ""}>
-                                <RecursiveNav data={menuData['pages']} index={0} />
-                            </MainList>
-
-                        </RootItem>
-
-                        <RootItem 
-                            active={currentTab === "news"}
-                            onMouseOver={handleOver("news")}
-                            onMouseLeave={handleMouseOut}
-                        >
-                            NEWS
-                            <MainList className={selectedTab == 0 ? "active" : ""}>
-                                <RecursiveNav data={menuData['news']} index={0} />
-                            </MainList>
-
-                        </RootItem>
-
-                        <RootItem 
-                            active={currentTab === "contact"}
-                            onMouseOver={handleOver("contact")}
-                            onMouseLeave={handleMouseOut}
-                        >
-                            CONTACT
-                            <MainList className={selectedTab == 0 ? "active" : ""}>
-                                <RecursiveNav data={menuData['contact']} index={0} />
-                            </MainList>
-
-                        </RootItem>
+                                </RootItem>
+                            )
+                        })}
 
                         <HButton size="normal" type="violet" style={{marginRight: "24px"}}>BOOK NOW</HButton>
                     </ListContainer> 
