@@ -1,0 +1,43 @@
+.MuiInput-underline:before,
+.MuiInput-underline:after {
+    display: none;
+}
+
+.MuiList-padding {
+    padding-top: 2px !important; 
+    padding-bottom: 2px !important;
+}
+
+.MuiInput-root {
+    height: inherit;
+}
+
+.MuiPopover-root {
+    position: absolute !important;
+}
+.MuiPaper-root {
+    top: 484px !important;
+}
+/* Responsive */
+@media screen and (max-width: 1078px) {
+    .MuiPaper-root {
+        top: 580px !important;
+    }
+    .MuiFormControl-root {
+        min-width: 80% !important;
+        transition: all 0.4s ease-in-out;
+    }
+}
+
+.btn-submit {
+    font-size: 30px;
+    z-index: 100;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    margin-top: 3px;
+    padding: 4px 6px;
+}
+.btn-submit:hover {
+    fill: #000;
+}

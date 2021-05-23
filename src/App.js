@@ -1,12 +1,13 @@
-import {NavBar} from './componets/NavBar/NavBar';
+import {NavBar} from './features/NavBar/NavBar';
 import GlobalStyle from './globalStyles';
-import MainTravelBackground from './componets/MainTravelBackground/MainTravelBackground';
+import MainTravel from './features/MainTravel/MainTravel';
+import './App.css'
 function App() {
   return (
     <>
       <GlobalStyle/>
       <NavBar/>
-      <MainTravelBackground></MainTravelBackground>
+      <MainTravel/>
       {/* <HButton></HButton>
       <HCard></HCard> */}
     </>

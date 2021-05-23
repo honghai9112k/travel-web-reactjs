@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import {menuData} from '../../data/MenuData';
-import { HButton } from '../base/HButton';
+import { HButton } from '../../componets/HButton/HButton';
 import {VscMenu}  from 'react-icons/vsc';
 import {RiArrowRightSFill} from 'react-icons/ri'
 
@@ -13,11 +13,11 @@ const Logo = styled(Link)`
 
 const NavBarContainer = styled.section`
     display:flex;
-    position:fixed;
+    position:relative;
     width:100%;
     background-color:rgba(0,0,0,0.3);
     align-items:center;
-    padding: 30px 0px;
+    padding: 36px 0px;
     z-index: 1000;
     justify-content: space-around;
     @media screen and (max-width: 1078px) {
@@ -35,6 +35,7 @@ const ListContainer = styled.ul`
     @media screen and (max-width: 1078px) {
         display: none !important;
     }
+
 `;
 
 //Base Css
@@ -128,7 +129,7 @@ const ItemParent = styled.li`
 
 const LinkItem = styled.a`
     ${BaseItem}
-    font-size: 14px;
+    font-size: 15px;
     line-height: 14px;
     letter-spacing: 2px;
 
@@ -146,17 +147,18 @@ const RootItem = styled.li`
     padding:5px 20px;
     font-weight:400;
     cursor:pointer;
-    font-size:15px;
+    font-size:16px;
     position: relative;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    
+    letter-spacing: 1px;
     &:hover {
         color: #ccc;
     }
     &:hover ${MainList}{
         display:flex;
         flex-direction:column;
+        
     } ;
 
 `
@@ -173,12 +175,13 @@ const MenuBarIcon = styled(VscMenu)`
     @media screen and (max-width: 1078px) {
         margin: 2px 0 -18px 84px;
     }
-
+    
 `
 const ArrowRightIcon = styled(RiArrowRightSFill)`
     height: 16px;
     width: 16px;
     fill:currentColor;
+
 `
 // Hàm đệ quy tạo list menu. 
 // ---Trường hợp 1: index= 0 -> thực hiện lệnh esle 
@@ -250,7 +253,7 @@ const rootItemData = [
     {id:"aboutUs", content:"ABOUT US", hasChildren: "yes" },
     {id:"pages", content:"PAGES", hasChildren: "yes" },
     {id:"news", content:"NEWS", hasChildren: "yes" },
-    {id:"contact", content:"Contact", hasChildren: "yes" },
+    {id:"contact", content:"CONTACT", hasChildren: "yes" },
 ]
 
 export const NavBar = (props) => {
@@ -279,6 +282,7 @@ export const NavBar = (props) => {
                                     // active={currentTab === item.id }
                                     // onMouseOver={handleOver(item.id)}
                                     // onMouseLeave={handleMouseOut}
+                                    key={index}
                                 >
                                     {item.content}
                                     {item.hasChildren && 
