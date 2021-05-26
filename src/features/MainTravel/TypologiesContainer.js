@@ -13,7 +13,7 @@ const TopoContainer = styled.div`
     width: 30%;
     text-align: center;
     justify-content: center;
-    @media screen and (max-width: 1078px) {
+    @media screen and (max-width: 1200px) {
         flex-direction: column;
         text-align: center;
         

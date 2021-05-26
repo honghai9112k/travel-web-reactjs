@@ -20,7 +20,7 @@ const NavBarContainer = styled.section`
     padding: 36px 0px;
     z-index: 1000;
     justify-content: space-around;
-    @media screen and (max-width: 1078px) {
+    @media screen and (max-width: 1200px) {
         display: grid;
     }
 `;
@@ -32,7 +32,7 @@ const ListContainer = styled.ul`
     align-items:center;
     margin: 0 0 0 -50px;
     padding-inline-start:0px;
-    @media screen and (max-width: 1078px) {
+    @media screen and (max-width: 1200px) {
         display: none !important;
     }
 
@@ -54,7 +54,7 @@ const BaseList=css`
     background-color:#fff;
     min-width: 180px;
     list-style-type:none;
-    box-shadow:0px 2px 5px #f1f1f1 ;
+    box-shadow:1px 1px 2px #f1f1f1 ;
     z-index: 100;
     &:first-child {
         border-top-left-radius: 4px;
@@ -172,7 +172,7 @@ const MenuBarIcon = styled(VscMenu)`
         opacity: 0.8 ;
     }
     margin: 4px 2px 5px;
-    @media screen and (max-width: 1078px) {
+    @media screen and (max-width: 1200px) {
         margin: 2px 0 -18px 84px;
     }
     
@@ -204,14 +204,14 @@ const RecursiveNav = ({ data, index }) => {
                     {data.map((item, index) => {
 
                         return (
-                            <>
+                            <div key= {index}>
                                 {item.type === "link" ? <LinkItem>{item.title}</LinkItem> :
                                     <ItemParent>
                                         {item.title}
                                         <ArrowRightIcon/>
                                         <RecursiveNav data={item.children} index={index + 1} />
                                     </ItemParent>}
-                            </>
+                            </div>
                         )
                     })}
                 </ChildrenList>
@@ -222,7 +222,7 @@ const RecursiveNav = ({ data, index }) => {
             <>
                 {data.map((item, index) => {
                     return (
-                        <>
+                        <div key= {index}>
                             {item.type === "link" ? <LinkItem>{item.title}</LinkItem> :
                                 <ItemParent>
                                     {item.title}
@@ -230,7 +230,7 @@ const RecursiveNav = ({ data, index }) => {
                                     <RecursiveNav data={item.children} index={index + 1} />
                                     {/* Nếu gặp type=='parent' -> Gọi lại RecursiveNav -> index != 0 -> vào trường hợp trên*/}
                                 </ItemParent>}
-                        </>
+                        </div>
                     )
 
                 })}
