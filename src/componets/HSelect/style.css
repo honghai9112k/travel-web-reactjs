@@ -19,7 +19,7 @@
     top: 484px !important;
 }
 /* Responsive */
-@media screen and (max-width: 1078px) {
+@media screen and (max-width: 1200px) {
     .MuiPaper-root {
         top: 580px !important;
     }
