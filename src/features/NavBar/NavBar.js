@@ -3,15 +3,16 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import {menuData} from '../../data/MenuData';
 import { HButton } from '../../componets/HButton/HButton';
-import {VscMenu}  from 'react-icons/vsc';
 import {RiArrowRightSFill} from 'react-icons/ri'
+import SideBar from '../SideBar/SideBar';
 
 
 const Logo = styled(Link)`
-
+    /* margin: 0 0 0 70px; */
 `;
 
-const NavBarContainer = styled.section`
+
+const NavBarContainer = styled.div`
     display:flex;
     position:relative;
     width:100%;
@@ -19,10 +20,11 @@ const NavBarContainer = styled.section`
     align-items:center;
     padding: 36px 0px;
     z-index: 1000;
-    justify-content: space-around;
+    justify-content: space-evenly;
     @media screen and (max-width: 1200px) {
         display: grid;
     }
+    
 `;
 
 
@@ -30,7 +32,8 @@ const ListContainer = styled.ul`
     display:flex;
     list-style-type:none;
     align-items:center;
-    margin: 0 0 0 -50px;
+    /* margin: 0 0 0 80px; */
+    min-width: 884px;
     padding-inline-start:0px;
     @media screen and (max-width: 1200px) {
         display: none !important;
@@ -162,21 +165,7 @@ const RootItem = styled.li`
     } ;
 
 `
-const MenuBarIcon = styled(VscMenu)`
-    background-size: contain;
-    height: 30px;
-    width: 30px;
-    cursor: pointer;
-    color: #fff;
-    &:hover {
-        opacity: 0.8 ;
-    }
-    margin: 4px 2px 5px;
-    @media screen and (max-width: 1200px) {
-        margin: 2px 0 -18px 84px;
-    }
-    
-`
+
 const ArrowRightIcon = styled(RiArrowRightSFill)`
     height: 16px;
     width: 16px;
@@ -268,10 +257,11 @@ export const NavBar = (props) => {
     // const handleMouseOut = (event) => {
     //     setSelectedTab(currentTab);
     // }
+    
 
     return (
         <>
-
+        
          <NavBarContainer>
                     <Logo to="/" ><img style={{height:"38px", width: "160px"}} src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/logo.png" /></Logo>
 
@@ -296,9 +286,11 @@ export const NavBar = (props) => {
                         })}
 
                         <HButton size="normal" type="violet" style={{marginRight: "24px"}}>BOOK NOW</HButton>
+                    
                     </ListContainer> 
 
-                    <MenuBarIcon/> 
+                    <SideBar></SideBar>   
+             
               </NavBarContainer>  
         
         </>

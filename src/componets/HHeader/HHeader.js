@@ -21,9 +21,9 @@ const UnderHeader = styled.h1 `
     &:after {
         content: "";
         right: 0px;
-        width: 206px;
+        width: 100%;
         height: 4px;
-        top: 40px;
+        top: 38px;
         z-index: -1;
         position: absolute;
         border-radius: 3px;
@@ -52,4 +52,4 @@ const HHeader=(props)=> {
 export default HHeader
     // ex:
     // <HHeader color="black" isUnder="">OUR</HHeader>
-    // <HHeader colorUnder= "greenblue" color="black" isUnder="true">PACKAGES</HHeader>
+    // <HHeader colorUnder= "greenblue" color="black" isUnder="true" size="">PACKAGES</HHeader>

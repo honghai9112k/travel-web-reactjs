@@ -1,8 +1,8 @@
 export const menuData = {
     home: [],
     packages: [
-        {type:'link', title: 'Search1' ,link: '/search1'},
-        {type:'link', title: 'Search2' ,link: '/search2'},
+        {type:'link', title: 'Search 1' ,link: '/search1'},
+        {type:'link', title: 'Search 2' ,link: '/search2'},
         {
             type:'parent', title: 'Tour Package',
             children: [
@@ -12,6 +12,8 @@ export const menuData = {
                 {type:'link', title: 'Default' ,link: '/default'},
             ]
         },
+        {type:'link', title: 'Destination' ,link: '/destination'},
+        {type:'link', title: 'Typology' ,link: '/typology'},
     ],
     shop: [
         {type:'link', title: 'Archive' ,link: '/archive'},

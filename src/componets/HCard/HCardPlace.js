@@ -13,8 +13,9 @@ const BaseContainer =css`
  `
 const CardContainer = styled.div`
     ${BaseContainer}
-    margin:0 15px ;
+    margin:0 15px 32px;
     border: 1px solid #f1f1f1;
+    max-width: 368px;
 `
 
 const CardImg = styled.div`

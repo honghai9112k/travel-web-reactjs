@@ -7,7 +7,7 @@ const useIsMobile = () => {
 
     // Initial if user first go into
     useEffect(() => {
-        if (window.matchMedia('(max-width: 1200)').matches) {
+        if (window.matchMedia('(max-width: 1200px)').matches) {
             setIsMobile(true);
         }
     }, [])
@@ -16,7 +16,7 @@ const useIsMobile = () => {
     useEffect(() => {
 
         const handleResize = () => {
-            if (window.matchMedia("(max-width: 1200)").matches) {
+            if (window.matchMedia("(max-width: 1200px)").matches) {
               if (!isMobile) setIsMobile(true);
             } else {
               if (isMobile) setIsMobile(false);
