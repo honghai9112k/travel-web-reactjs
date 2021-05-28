@@ -1,0 +1,9 @@
+
+.nav{
+    right:-100%;
+    opacity: 0.5;
+}
+.nav.open {
+    right: 0;
+    opacity: 1;
+}

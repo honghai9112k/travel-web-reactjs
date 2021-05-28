@@ -15,6 +15,7 @@ const PackagesContainer = styled.div`
     width: 1200px;
     margin: auto;
     font-family: 'Poppins', sans-serif;
+    max-width: 100%;
 `
 const Header = styled.div`
     display: flex;
@@ -37,6 +38,7 @@ const PackagesRule = styled.section`
     background-color: #fff;
     float: left;
     justify-content: center;
+    flex-wrap: wrap;
 `
 
  const Packages = () => {
@@ -74,7 +76,9 @@ const PackagesRule = styled.section`
                     size="normal"
                     continent="United States"
                 >San Francisco</HCardPlace>
+
             </PackagesRule>
+            
         </PackagesContainer>
     );
 };

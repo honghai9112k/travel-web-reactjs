@@ -15,7 +15,7 @@ const BackgroundImg=styled.section`
     background-repeat: no-repeat;
     overflow:hidden;
     background-position:center center;
-    margin-top: -130px;
+    margin-top: -142px;
     font-family: 'Poppins', sans-serif;
     align-items: center;
     text-align: center;
@@ -23,7 +23,7 @@ const BackgroundImg=styled.section`
     flex-direction: column;
     display: flex;
     justify-content: center;
-    transition: all 0.5s ease-ease-in;
+    transition: all 1s ease-ease-in;
 
 `
 const HeaderContainer= styled.div`
