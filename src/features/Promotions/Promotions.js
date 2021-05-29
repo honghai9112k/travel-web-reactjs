@@ -1,6 +1,6 @@
 import React from 'react';
 import  HCardPlace  from '../../componets/HCard/HCardPlace';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import HHeader from '../../componets/HHeader/HHeader';
 import logoBerlin from '../../assets/imgs/logoplaces/berlin.png'
 import logoHongKong from '../../assets/imgs/logoplaces/hongkong.png'
@@ -36,12 +36,18 @@ const Decs = styled.h3`
 const PackagesRule = styled.section`
     display: flex;
     background-color: #fff;
-    float: left;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    @media screen and (max-width: 75em) {    
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
 `
 
- const Packages = () => {
+ const Promotions = () => {
     return (
         <PackagesContainer>
             <Decs>PROMOTIONS</Decs>
@@ -82,7 +88,7 @@ const PackagesRule = styled.section`
         </PackagesContainer>
     );
 };
-export default Packages;
+export default Promotions;
 
 
  

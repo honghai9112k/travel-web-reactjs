@@ -21,7 +21,7 @@ const NavBarContainer = styled.div`
     padding: 36px 0px;
     z-index: 1000;
     justify-content: space-evenly;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 75em) {
         display: grid;
     }
     
@@ -35,7 +35,7 @@ const ListContainer = styled.ul`
     /* margin: 0 0 0 80px; */
     min-width: 884px;
     padding-inline-start:0px;
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 75em) {
         display: none !important;
     }
 
@@ -290,7 +290,7 @@ export const NavBar = (props) => {
                     </ListContainer> 
 
                     <SideBar></SideBar>   
-             
+                            
               </NavBarContainer>  
         
         </>

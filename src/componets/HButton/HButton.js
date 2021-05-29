@@ -5,7 +5,7 @@ import {ColorData} from '../../data/ColorData'
 const paddingData = [
   {size:'tiny', pd:'3px 20px'},
   {size:'small', pd:'8px 16px'},
-  {size:'normal', pd:'12px 14px'},
+  {size:'normal', pd:'8px 16px'},
   {size:'big', pd:'14px 73px'},
 ]
 
@@ -13,10 +13,10 @@ const paddingData = [
 
 export const HButton = styled(Link)`
     background-color: ${props => ColorData.find((item,index) => item.id === props.type ).color  };
-    color: ${props => props.type=='white'?'#000':'#fff' } !important;
+    color: ${props => props.type=='white'?'#14b9d5':'#fff' } !important;
     border-radius: 6px;
     margin: ${props => props.size==="tiny" ? "0" :"10px 0"  };
-    height: 100%;
+    /* height: 100%; */
     min-width:100px;
     text-decoration: none !important;
     cursor: pointer;
@@ -30,4 +30,6 @@ export const HButton = styled(Link)`
     &:hover {
       opacity: 0.8;
     }
+    text-align: center;
 `
+{/* <HButton size="tiny" type="white" style={{background: `linear-gradient(to right, ${colorCard.color} 0%, ${colorCard.colorLinear} 100%)`}}>FROM {costAfterSale}</HButton> */}
