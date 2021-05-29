@@ -147,7 +147,7 @@ const HPackage = (props) => {
                     <LinkPlaces href="">Hong Kong</LinkPlaces>
                     <LinkPlaces href="" >Phuket</LinkPlaces>
                 </LinkList>
-                <HButton size="normal" type="white">VIEW DESTINATION</HButton>
+                <HButton size="normal" type="white"colorText="blue">VIEW DESTINATION</HButton>
             </HoverPack>
 
         </PackageContainer>

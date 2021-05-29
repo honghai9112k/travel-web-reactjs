@@ -11,11 +11,17 @@ import sanfrancisco from '../../assets/imgs/places/sanfrancisco.jpg'
 
 
 const PackagesContainer = styled.div`
-    height: 862px;
+    
     width: 1200px;
     margin: auto;
     font-family: 'Poppins', sans-serif;
     max-width: 100%;
+    overflow-y: hidden;
+    /* @media screen and (min-width: 75em)  {    
+        height: 862px;
+    } */
+
+    padding-bottom: 40px;
 `
 const Header = styled.div`
     display: flex;
