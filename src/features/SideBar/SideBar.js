@@ -16,7 +16,7 @@ import useIsMobile from '../../core/useIsMobile'
 import HHeader from '../../componets/HHeader/HHeader';
 import {menuData} from '../../data/MenuData';
 import {AiFillCaretDown} from 'react-icons/ai'
-
+import HPackage from '../../componets/HPackage/HPackage';
 
 
 const SideBarContainer = styled.div`
@@ -27,7 +27,7 @@ const SideBarContainer = styled.div`
     top: 0;
     height: 100vh;
     overflow-y: scroll;
-    transition: 1s ease-in-out;
+    transition: right 1s ease-in-out, opacity 1s ease-in-out ;
 `
 const MenuBarIcon = styled(VscMenu)`
     position: relative;
@@ -210,94 +210,95 @@ const SideBar = () => {
             <div>
                 <MenuBarIcon onClick={handleClick}/> 
         
-                    <SideBarContainer className= {`${open ? "nav open" : "nav"} `} isMobile={isMobile}>
+                <SideBarContainer className= {`${open ? "nav open" : "nav"} `} isMobile={isMobile}>
 
-                        <CloseIcon onClick={handleClickAway} isMobile={isMobile}></CloseIcon>
+                    <CloseIcon onClick={handleClickAway} isMobile={isMobile}></CloseIcon>
 
-                    {/* respon */}
-                    {isMobile 
-                    ? 
-                        <SideBarContent isMobile={isMobile}>
-                            {rootItemData.map((item,index)=>{
-                                return (
-                                    <RootItem key={index}>
-                                        {item.content}
-                                        {item.hasChildren && 
-                                            <MainList >
-                                                <RecursiveNav data={menuData[item.id]} index={0} />
-                                            </MainList>
-                                        }
+                {/* respon */}
+                {isMobile 
+                ? 
+                    <SideBarContent isMobile={isMobile}>
+                        {rootItemData.map((item,index)=>{
+                            return (
+                                <RootItem key={index}>
+                                    {item.content}
+                                    {item.hasChildren && 
+                                        <MainList >
+                                            <RecursiveNav data={menuData[item.id]} index={0} />
+                                        </MainList>
+                                    }
 
-                                    </RootItem>
-                                )
-                            })}
-                        </SideBarContent>
-                    :
-                        <SideBarContent  isMobile={isMobile}>
-                            <Header>
-                                <p>BEST</p>
-                                <HHeader colorUnder= "yellow" color="black" isUnder="true" size="25px">PACKAGES</HHeader>
-                            </Header>
+                                </RootItem>
+                            )
+                        })}
+                    </SideBarContent>
+                :
+                    <SideBarContent  isMobile={isMobile}>
+                        <Header>
+                            <p>BEST</p>
+                            <HHeader colorUnder= "yellow" color="black" isUnder="true" size="25px">PACKAGES</HHeader>
+                        </Header>
 
-                            <Packages>
-                                <HCardPlace 
-                                    linkImg= {Berlin} 
-                                    colorMain="yellow" 
-                                    costAfterSale="700 $"
-                                    size="small"
-                                    continent="Europe"
-                                >Berlin</HCardPlace>
-                                <HCardPlace 
-                                    linkImg= {HongKong} 
-                                    colorMain="pink" 
-                                    isSale="true"
-                                    costAfterSale="500 $"
-                                    preCost="1000"
-                                    size="small"
-                                    continent="Asia"
-                                >Hong Kong</HCardPlace>
-                                <HCardPlace 
-                                    linkImg= {Sanfrancisco} 
-                                    colorMain="violet"
-                                    costAfterSale="400 $"
-                                    size="small"
-                                    continent="United States"
-                                >San Francisco</HCardPlace>
-                            </Packages>
+                        <Packages>
+                            <HCardPlace 
+                                linkImg= {Berlin} 
+                                colorMain="yellow" 
+                                costAfterSale="700 $"
+                                size="small"
+                                continent="Europe"
+                            >Berlin</HCardPlace>
+                            <HCardPlace 
+                                linkImg= {HongKong} 
+                                colorMain="pink" 
+                                isSale="true"
+                                costAfterSale="500 $"
+                                preCost="1000"
+                                size="small"
+                                continent="Asia"
+                            >Hong Kong</HCardPlace>
+                            <HCardPlace 
+                                linkImg= {Sanfrancisco} 
+                                colorMain="violet"
+                                costAfterSale="400 $"
+                                size="small"
+                                continent="United States"
+                            >San Francisco</HCardPlace>
+                        </Packages>
 
+                            <HPackage type =""></HPackage>
 
-                            <Header>
-                                <p>LAST</p>
-                                <HHeader colorUnder= "brower" color="black" isUnder="true" size="25px">MINUTES</HHeader>
-                            </Header>
-                            <Packages>
-                                <HCardPlace 
-                                    linkImg= {Tuscany} 
-                                    colorMain="greenblue" 
-                                    costAfterSale="730 $"
-                                    size="small"
-                                    continent="Italy"
-                                >Berlin</HCardPlace>
-                                <HCardPlace 
-                                    linkImg= {Amsterdam} 
-                                    colorMain="brower" 
-                                    isSale="true"
-                                    costAfterSale="1500 $"
-                                    size="small"
-                                    continent="Netherlands"
-                                >Hong Kong</HCardPlace>
-                                <HCardPlace 
-                                    linkImg= {Phuket} 
-                                    colorMain="blue"
-                                    costAfterSale="1200 $"
-                                    size="small"
-                                    continent="Thailandia"
-                                >San Francisco</HCardPlace>
-                            </Packages>
-                                
-                        </SideBarContent>
-                    }
-                    </SideBarContainer>
+                        <Header>
+                            <p>LAST</p>
+                            <HHeader colorUnder= "brower" color="black" isUnder="true" size="25px">MINUTES</HHeader>
+                        </Header>
+                        <Packages>
+                            <HCardPlace 
+                                linkImg= {Tuscany} 
+                                colorMain="greenblue" 
+                                costAfterSale="730 $"
+                                size="small"
+                                continent="Italy"
+                            >Berlin</HCardPlace>
+                            <HCardPlace 
+                                linkImg= {Amsterdam} 
+                                colorMain="brower" 
+                                isSale="true"
+                                costAfterSale="1500 $"
+                                size="small"
+                                continent="Netherlands"
+                            >Hong Kong</HCardPlace>
+                            <HCardPlace 
+                                linkImg= {Phuket} 
+                                colorMain="blue"
+                                costAfterSale="1200 $"
+                                size="small"
+                                continent="Thailandia"
+                            >San Francisco</HCardPlace>
+                        </Packages>
+                            
+                    </SideBarContent>
+                }
+                </SideBarContainer>
                 
             </div>    
         </ClickAwayListener>

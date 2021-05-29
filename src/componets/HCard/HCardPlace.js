@@ -11,21 +11,54 @@ const BaseContainer =css`
     float: left;
     font-family: 'Poppins', sans-serif;
  `
+
 const CardContainer = styled.div`
     ${BaseContainer}
     margin:0 15px 32px;
     border: 1px solid #f1f1f1;
-    max-width: 368px;
+    /* margin-top: 30px; */
+    @media screen and (min-width: 75em) {    
+        max-width: 368px;   
+    }
+    @media screen and (max-width: 75em) and (min-width: 60em) {    
+        height: 929px;
+        width:929px;
+    }
+    @media screen and (max-width: 59.9375em) and (min-width: 48em) {    
+        height: 802px;
+        width:717px;
+    }
+    @media screen and (max-width: 47.9375em) and (min-width: 30em) {    
+        height: 649px;
+        width:429px;
+    }
+    @media screen and (max-width: 29.9375em) {    
+        height: 628px;
+        width:269px;
+    }
+    transition: all 0.4s ease-in-out;
 `
 
 const CardImg = styled.div`
+    position: relative;
     height:231px ;
     width:100%;
-    position: relative;
+    @media screen and (max-width: 75em) and (min-width: 60em) {    
+        height: 581px;
+    }
+    @media screen and (max-width: 59.9375em) and (min-width: 48em) {    
+        height: 484px;
+    }
+    @media screen and (max-width: 47.9375em) and (min-width: 30em) {    
+        height: 268px;
+    }
+    @media screen and (max-width: 29.9375em) {    
+        height: 168px;
+    }
 `
 
 const Img =styled.img`
-    height:231px ;
+    height:100% ;
     width:100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,7 +85,25 @@ const Logo = styled.a`
 //Card content
 
 const CardContent = styled.div`
-    margin:30px;
+    padding:30px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 75em) and (min-width: 60em) {    
+        height: 354px;
+    }
+    @media screen and (max-width: 59.9375em) and (min-width: 48em) {    
+        height: 354px;
+    }
+    @media screen and (max-width: 47.9375em) and (min-width: 30em) {    
+        height: 381px;
+    }
+    @media screen and (max-width: 29.9375em) {    
+        height: 460px;
+    }
+    transition: all 0.4s ease-in-out;
 `
 // Header content
 const HeaderContainer = styled.div`
@@ -111,6 +162,10 @@ const TypoAndCost = styled.div`
     }
     text-align: center;
     align-items: center;
+    @media screen and (max-width: 29.9375em) {    
+        flex-direction: column;
+        left: 0;
+    }
 `
 
 const TypoContainer =styled.div`
@@ -238,43 +293,43 @@ const HeaderNameSmall =styled.h3`
                 </CardContentSmall>
             </CardContainerSmall>
     :
-    <CardContainer>    
-        <CardImg>
-            <Img src={linkImg} ></Img>
-            <Logo href='/' 
-                style= {{background: `linear-gradient(to right, ${colorCard.color} 0%, ${colorCard.colorLinear} 100%)` }}
-            >
-                <img src={linkIcon} ></img>
-            </Logo>
-        </CardImg>
+        <CardContainer>    
+            <CardImg>
+                <Img src={linkImg} ></Img>
+                <Logo href='/' 
+                    style= {{background: `linear-gradient(to right, ${colorCard.color} 0%, ${colorCard.colorLinear} 100%)` }}
+                >
+                    <img src={linkIcon} ></img>
+                </Logo>
+            </CardImg>
 
-        <CardContent>
-            <HeaderContainer>
-                <HeaderName>{children}</HeaderName>
-                <LinkPlace href="/">
-                    <IconPlace></IconPlace>
-                    <HeaderPlace>Europe</HeaderPlace>
-                </LinkPlace>
-            </HeaderContainer>
-            <Content>
-                <TypoAndCost>
-                    <TypoContainer>
-                        <Text>
-                            <h6 style={{textAlign:'left'}}>CULTURAL<br/>RELAX </h6>
-                            <span style={{backgroundColor:colorCard.color }}>+ 1</span>
-                        </Text>
-                    </TypoContainer>
-                    <Cost>
-                        {preCost && <CostSale > {preCost} </CostSale>}
-                        {costAfterSale}    
-                    </Cost>
-                </TypoAndCost>  
-                <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</Desc>
-            </Content>
-            <HButton size="small" type={colorMain} style={{marginRight: "24px"}}>DETAILS</HButton>
-        </CardContent>
+            <CardContent>
+                <HeaderContainer>
+                    <HeaderName>{children}</HeaderName>
+                    <LinkPlace href="/">
+                        <IconPlace></IconPlace>
+                        <HeaderPlace>Europe</HeaderPlace>
+                    </LinkPlace>
+                </HeaderContainer>
+                <Content>
+                    <TypoAndCost>
+                        <TypoContainer>
+                            <Text>
+                                <h6 style={{textAlign:'left'}}>CULTURAL<br/>RELAX </h6>
+                                <span style={{backgroundColor:colorCard.color }}>+ 1</span>
+                            </Text>
+                        </TypoContainer>
+                        <Cost>
+                            {preCost && <CostSale > {preCost} </CostSale>}
+                            {costAfterSale}    
+                        </Cost>
+                    </TypoAndCost>  
+                    <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</Desc>
+                </Content>
+                <HButton size="small" type={colorMain} style={{marginRight: "24px"}}>DETAILS</HButton>
+            </CardContent>
 
-    </CardContainer>
+        </CardContainer>
     }
  </>   
   );

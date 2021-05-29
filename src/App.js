@@ -1,7 +1,8 @@
 import {NavBar} from './features/NavBar/NavBar';
 import GlobalStyle from './globalStyles';
 import MainTravel from './features/MainTravel/MainTravel';
-import Packages from './features/Packages/Packages';
+import Proposals from './features/Proposals/Proposals';
+import Promotions from './features/Promotions/Promotions';
 import './App.css'
 
 
@@ -11,7 +12,8 @@ function App() {
       <GlobalStyle/>
       <NavBar/>
       <MainTravel/>
-      <Packages></Packages>
+      <Proposals/>
+      <Promotions/>
 
     </>
   );
