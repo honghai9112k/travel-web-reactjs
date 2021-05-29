@@ -13,7 +13,7 @@ const paddingData = [
 
 export const HButton = styled(Link)`
     background-color: ${props => ColorData.find((item,index) => item.id === props.type ).color  };
-    color: ${props => props.type=='white'?'#14b9d5':'#fff' } !important;
+    color: ${props => ColorData.find((item,index) => item.id === props.colorText ).color  } !important;
     border-radius: 6px;
     margin: ${props => props.size==="tiny" ? "0" :"10px 0"  };
     /* height: 100%; */
@@ -32,4 +32,4 @@ export const HButton = styled(Link)`
     }
     text-align: center;
 `
-{/* <HButton size="tiny" type="white" style={{background: `linear-gradient(to right, ${colorCard.color} 0%, ${colorCard.colorLinear} 100%)`}}>FROM {costAfterSale}</HButton> */}
+{/* <HButton size="tiny" type="white" colorText="white">Detail</HButton> */}

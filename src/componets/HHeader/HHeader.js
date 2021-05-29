@@ -11,7 +11,7 @@ const BaseHeader=css`
     letter-spacing: 1px;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
-    width: min-content;
+    width: fit-content;
 `
 const UnderHeader = styled.h1 `
     ${BaseHeader}

@@ -288,7 +288,7 @@ const HeaderNameSmall =styled.h3`
                             <IconPlace></IconPlace>
                             <HeaderPlace>{continent}</HeaderPlace>
                         </LinkPlace>
-                        <HButton size="tiny" type={colorMain} style={{background: `linear-gradient(to right, ${colorCard.color} 0%, ${colorCard.colorLinear} 100%)`}}>FROM {costAfterSale}</HButton>
+                        <HButton size="tiny" type={colorMain} colorText="white" style={{background: `linear-gradient(to right, ${colorCard.color} 0%, ${colorCard.colorLinear} 100%)`}}>FROM {costAfterSale}</HButton>
                     </HeaderContainer>
                 </CardContentSmall>
             </CardContainerSmall>
@@ -326,7 +326,7 @@ const HeaderNameSmall =styled.h3`
                     </TypoAndCost>  
                     <Desc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut efficitur ante. Donec dapibus dictum scelerisque.</Desc>
                 </Content>
-                <HButton size="small" type={colorMain} style={{marginRight: "24px"}}>DETAILS</HButton>
+                <HButton size="small" type={colorMain} style={{marginRight: "24px"}} colorText="white">DETAILS</HButton>
             </CardContent>
 
         </CardContainer>

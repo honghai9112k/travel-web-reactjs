@@ -285,7 +285,7 @@ export const NavBar = (props) => {
                             )
                         })}
 
-                        <HButton size="normal" type="violet" style={{marginRight: "24px"}}>BOOK NOW</HButton>
+                        <HButton size="normal" type="violet" style={{marginRight: "24px"}} colorText="white">BOOK NOW</HButton>
                     
                     </ListContainer> 
 

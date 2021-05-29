@@ -9,6 +9,7 @@ const ProposalContainner = styled.section`
     margin: auto;
     font-family: 'Poppins', sans-serif;
     max-width: 100%;
+    padding-bottom: 76px;
 `
 
 const Header = styled.div`
