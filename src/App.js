@@ -6,7 +6,8 @@ import Promotions from './features/Promotions/Promotions';
 import ContentMiddle from './features/ContentMiddle/ContentMiddle';
 import ContentMiddle2 from './features/ContentMiddle2/ContentMiddle2';
 import ContentBestChoose from './features/ContentBestChoose/ContentBestChoose';
-
+import Footer from './features/Footer/Footer';
+import ScrollToTop from './features/ScrollToTop/ScrollToTop';
 import './App.css'
 
 
@@ -16,14 +17,16 @@ import './App.css'
 function App() {
   return (
     <>
+      <ScrollToTop></ScrollToTop>
       <GlobalStyle />
       <NavBar />
       <MainTravel />
-      <Proposals/>
+      {/* <Proposals/>
       <ContentMiddle />
-      <ContentBestChoose></ContentBestChoose>
+      <ContentBestChoose/>
       <ContentMiddle2 />
-      <Promotions />
+      <Promotions /> */}
+      <Footer/>
 
     </>
   );

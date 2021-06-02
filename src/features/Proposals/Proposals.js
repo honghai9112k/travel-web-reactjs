@@ -8,8 +8,11 @@ const ProposalContainner = styled.section`
     width: 1200px;
     margin: auto;
     font-family: 'Poppins', sans-serif;
-    max-width: 100%;
-    padding-bottom: 76px;
+    
+    padding-bottom: 44px;
+    @media screen and (max-width: 75em)  {    
+        max-width: 100%;
+    }
 `
 
 const Header = styled.div`
@@ -32,6 +35,8 @@ const ProposalsContent = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    justify-content: center;
+    width: 100%;
     @media screen and (max-width: 75em)  {    
         flex-direction: column ;
     }
@@ -47,9 +52,13 @@ const Proposals = () => {
                 <HHeader colorUnder= "greenblue" color="black" isUnder="true" size="36px">DESTINATIONS</HHeader>
             </Header>
             <ProposalsContent>
-                <HPackage type= "main"></HPackage>
-                <HPackage  type = "main"></HPackage>
-                <HPackage type= "main"></HPackage>
+                <HPackage type= "main" styled={{marginBottom:"30px"}}></HPackage>
+                <HPackage type= "main" styled={{marginBottom:"30px"}}></HPackage>
+                <HPackage type= "main" styled={{marginBottom:"30px"}}></HPackage>
+                <HPackage type= "main" styled={{marginBottom:"30px"}}></HPackage>
+                <HPackage type= "main" styled={{marginBottom:"30px"}}></HPackage>
+                <HPackage type= "main" styled={{marginBottom:"30px"}}></HPackage>
+                
 
             </ProposalsContent>
         </ProposalContainner>
