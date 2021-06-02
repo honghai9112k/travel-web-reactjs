@@ -23,9 +23,12 @@ const PackageContainer = styled.section`
 const MainPack =styled.div`
     width: ${props => props.type === "main" ? "366px" :"261px" };
     height: ${props => props.type === "main" ? "366px" :"261px" };
+    @media screen and (max-width: 75em) {
+        transition: all 0.4s ease-in-out;
+    }
     @media screen and (max-width: 75em) and (min-width: 60em) {    
         height: 929px;
-        width:929px;
+        width:929px;    
     }
     @media screen and (max-width: 59.9375em) and (min-width: 48em) {    
         height: 717px;
@@ -39,7 +42,6 @@ const MainPack =styled.div`
         height: 269px;
         width:269px;
     }
-    transition: all 0.4s ease-in-out;
 
 `
 
@@ -129,7 +131,7 @@ const HPackage = (props) => {
     const {type} = props;
 
     return (
-        <PackageContainer>
+        <PackageContainer type={type}>
             <MainPack type={type}>
                 <Img src={Asia}></Img>
                 <Content>

@@ -25,7 +25,7 @@ const MiddleContainer = styled.section`
     display: flex;
     width: 100%;
     height: 268px;
-    margin: 76px 0;
+    margin: 76px 0 0;
 
     @media screen and (max-width: 75em) {    
         flex-direction: column;
