@@ -90,6 +90,7 @@ const Piece = styled.div`
 `
 const Header = styled.div`
     display:flex;
+    flex-wrap: wrap;
 `
 
 

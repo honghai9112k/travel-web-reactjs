@@ -3,7 +3,7 @@ import styled,{css} from "styled-components"
 import mainBackground from '../../assets/imgs/mainBackground.jpg' 
 import { HSelect } from '../../componets/HSelect/HSelect'
 import TypologiesContainer from './TypologiesContainer'
-import useIsMobile from '../../core/useIsMobile'
+import useIsMobile from '../../core/hooks/useIsMobile'
 
 
 
@@ -15,7 +15,7 @@ const BackgroundImg=styled.section`
     background-repeat: no-repeat;
     overflow:hidden;
     background-position:center center;
-    margin-top: -142px;
+    margin-top: -136px;
     font-family: 'Poppins', sans-serif;
     align-items: center;
     text-align: center;

@@ -1,8 +1,8 @@
 export const menuData = {
     home: [],
     packages: [
-        {type:'link', title: 'Search 1' ,link: '/search1'},
-        {type:'link', title: 'Search 2' ,link: '/search2'},
+        {type:'link', title: 'Search 1' ,link: '/packages/search1'},
+        {type:'link', title: 'Search 2' ,link: '/packages/search2'},
         {
             type:'parent', title: 'Tour Package',
             children: [

@@ -12,13 +12,13 @@ const Logo = styled(Link)`
 `;
 
 
-const NavBarContainer = styled.div`
+const NavBarContainer = styled.section`
     display:flex;
     position:relative;
     width:100%;
     background-color:rgba(0,0,0,0.3);
     align-items:center;
-    padding: 36px 0px;
+    padding: 30px 0px;
     z-index: 1000;
     justify-content: space-evenly;
     @media screen and (max-width: 75em) {
@@ -130,11 +130,12 @@ const ItemParent = styled.li`
 
 `
 
-const LinkItem = styled.a`
+const LinkItem = styled(Link)`
     ${BaseItem}
     font-size: 15px;
     line-height: 14px;
     letter-spacing: 2px;
+    text-decoration: none;
 
     &:not(:last-child){
         border-bottom: 1px solid #f1f1f1
@@ -150,11 +151,11 @@ const RootItem = styled.li`
     padding:5px 20px;
     font-weight:400;
     cursor:pointer;
-    font-size:16px;
+    font-size:15px;
     position: relative;
     color: #fff;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     &:hover {
         color: #ccc;
     }
@@ -164,6 +165,18 @@ const RootItem = styled.li`
         
     } ;
 
+`
+const LinkRootItem = styled(Link)`
+    font-weight:400;
+    cursor:pointer;
+    font-size:15px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    &:hover {
+        color: #ccc;
+    }
+    text-decoration: none;
 `
 
 const ArrowRightIcon = styled(RiArrowRightSFill)`
@@ -194,7 +207,7 @@ const RecursiveNav = ({ data, index }) => {
 
                         return (
                             <div key= {index}>
-                                {item.type === "link" ? <LinkItem>{item.title}</LinkItem> :
+                                {item.type === "link" ? <LinkItem to = {item.link} >{item.title}</LinkItem> :
                                     <ItemParent>
                                         {item.title}
                                         <ArrowRightIcon/>
@@ -212,7 +225,7 @@ const RecursiveNav = ({ data, index }) => {
                 {data.map((item, index) => {
                     return (
                         <div key= {index}>
-                            {item.type === "link" ? <LinkItem>{item.title}</LinkItem> :
+                            {item.type === "link" ? <LinkItem to = {item.link}>{item.title}</LinkItem> :
                                 <ItemParent>
                                     {item.title}
                                     <ArrowRightIcon/>
@@ -236,13 +249,13 @@ const RecursiveNav = ({ data, index }) => {
 // type== parent thì sẽ có cấp 3...(đệ quy). 
 
 const rootItemData = [
-    {id:"home", content:"HOME" ,hasChildren: ""},
-    {id:"packages", content:"PACKAGES", hasChildren: "yes" },
-    {id:"shop", content:"SHOP", hasChildren: "yes" },
-    {id:"aboutUs", content:"ABOUT US", hasChildren: "yes" },
-    {id:"pages", content:"PAGES", hasChildren: "yes" },
-    {id:"news", content:"NEWS", hasChildren: "yes" },
-    {id:"contact", content:"CONTACT", hasChildren: "yes" },
+    {id:"home", content:"HOME" ,hasChildren: "", link:"/"},
+    {id:"packages", content:"PACKAGES", hasChildren: "yes", link:"/" },
+    {id:"shop", content:"SHOP", hasChildren: "yes", link:"/" },
+    {id:"aboutUs", content:"ABOUT US", hasChildren: "yes", link:"/" },
+    {id:"pages", content:"PAGES", hasChildren: "yes", link:"/" },
+    {id:"news", content:"NEWS", hasChildren: "yes", link:"/" },
+    {id:"contact", content:"CONTACT", hasChildren: "yes", link:"/" },
 ]
 
 export const NavBar = (props) => {
@@ -274,7 +287,8 @@ export const NavBar = (props) => {
                                     // onMouseLeave={handleMouseOut}
                                     key={index}
                                 >
-                                    {item.content}
+                                    <LinkRootItem to = {item.link}>{item.content}</LinkRootItem>
+                                    
                                     {item.hasChildren && 
                                         <MainList >
                                             <RecursiveNav data={menuData[item.id]} index={0} />
@@ -285,7 +299,7 @@ export const NavBar = (props) => {
                             )
                         })}
 
-                        <HButton size="normal" type="violet" style={{marginRight: "24px"}} colorText="white">BOOK NOW</HButton>
+                        <HButton size="normal" type="violet" style={{marginRight: "24px", padding:"11px 15px"}} colorText="white">BOOK NOW</HButton>
                     
                     </ListContainer> 
 
