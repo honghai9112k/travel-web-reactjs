@@ -12,12 +12,12 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import {VscMenu}  from 'react-icons/vsc';
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 import './style.css'
-import useIsMobile from '../../core/useIsMobile'
+import useIsMobile from '../../core/hooks/useIsMobile'
 import HHeader from '../../componets/HHeader/HHeader';
 import {menuData} from '../../data/MenuData';
 import {AiFillCaretDown} from 'react-icons/ai'
 import HPackage from '../../componets/HPackage/HPackage';
-
+import { Link } from 'react-router-dom';
 
 const SideBarContainer = styled.div`
     background-color: rgb(255, 255, 255);
@@ -96,11 +96,13 @@ const ItemParent = styled.li`
     margin-left:20px ;
     list-style-type: none;
 `
-const LinkItem = styled.a`
+const LinkItem = styled(Link)`
     cursor: pointer;
     margin-left:20px ;
     font-size: 14px;
     line-height: 35px;
+    text-decoration: none;
+    color: #fff;
     &:hover {
         opacity: 0.8;
     }
@@ -120,6 +122,19 @@ const RootItem = styled.li`
         padding: 40px 0 0 0;
     }
 `
+const LinkRootItem = styled(Link)`
+    font-size: 24px;
+    line-height: 24px;
+    color: #fff;
+    font-weight: bold;
+    list-style-type: none;
+    letter-spacing: 0px;
+    &:hover {
+        color: #ccc;
+    }
+    text-decoration: none;
+`
+
 const MainList = styled.ul`
     font-size: 14px;
     line-height: 35px;
@@ -148,7 +163,7 @@ const RecursiveNav = ({data, index}) => {
 
                         return (
                             <div key= {index}>
-                                {item.type === "link" ? <LinkItem>{item.title}</LinkItem> :
+                                {item.type === "link" ? <LinkItem to = {item.link}>{item.title}</LinkItem> :
                                     <ItemParent>
                                         {item.title}
                                         <ArrowDownIcon/>
@@ -167,7 +182,7 @@ const RecursiveNav = ({data, index}) => {
 
                         return (
                             <div key= {index}>
-                                {item.type === "link" ? <LinkItem>{item.title}</LinkItem> :
+                                {item.type === "link" ? <LinkItem to = {item.link}>{item.title}</LinkItem> :
                                     <ItemParent>
                                         {item.title}
                                         <ArrowDownIcon/>
@@ -181,13 +196,13 @@ const RecursiveNav = ({data, index}) => {
 }
 
 const rootItemData = [
-    {id:"home", content:"HOME" ,hasChildren: ""},
-    {id:"packages", content:"PACKAGES", hasChildren: "yes" },
-    {id:"shop", content:"SHOP", hasChildren: "yes" },
-    {id:"aboutUs", content:"ABOUT US", hasChildren: "yes" },
-    {id:"pages", content:"PAGES", hasChildren: "yes" },
-    {id:"news", content:"NEWS", hasChildren: "yes" },
-    {id:"contact", content:"CONTACT", hasChildren: "yes" },
+    {id:"home", content:"HOME" ,hasChildren: "", link:"/"},
+    {id:"packages", content:"PACKAGES", hasChildren: "yes", link:"/" },
+    {id:"shop", content:"SHOP", hasChildren: "yes", link:"/" },
+    {id:"aboutUs", content:"ABOUT US", hasChildren: "yes", link:"/" },
+    {id:"pages", content:"PAGES", hasChildren: "yes", link:"/" },
+    {id:"news", content:"NEWS", hasChildren: "yes", link:"/" },
+    {id:"contact", content:"CONTACT", hasChildren: "yes", link:"/" },
 ]
 
 //return
@@ -221,7 +236,7 @@ const SideBar = () => {
                         {rootItemData.map((item,index)=>{
                             return (
                                 <RootItem key={index}>
-                                    {item.content}
+                                    <LinkRootItem to = {item.link}>{item.content}</LinkRootItem>
                                     {item.hasChildren && 
                                         <MainList >
                                             <RecursiveNav data={menuData[item.id]} index={0} />

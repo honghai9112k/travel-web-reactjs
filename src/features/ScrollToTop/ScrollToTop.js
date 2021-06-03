@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import useIsScroll from '../../core/hooks/useIsScroll'
-import {AiOutlineArrowUp} from 'react-icons/ai'
+import { AiOutlineArrowUp } from 'react-icons/ai'
 const Scroll = styled.div`
     position: fixed ;
     z-index: 100000;
@@ -18,6 +18,14 @@ const Scroll = styled.div`
     }
 `
 
+const Icon = styled(AiOutlineArrowUp)`
+    margin: 13px 13.5px  ;
+    font-size: 18px ;
+    width: 18px ;
+    height: 18px ;
+    fill: rgb(163 177 201) ; 
+`
+
 const ScrollToTop = () => {
     const { isScroll } = useIsScroll(600)
 
@@ -27,18 +35,11 @@ const ScrollToTop = () => {
 
     return (
         <>
-            {isScroll && <Scroll>
-                <AiOutlineArrowUp    
-                    style={{ 
-                        margin: "13px 13.5px" ,
-                        fontSize:"18px",
-                        width:"18px",
-                        height:"18px",
-                        fill:"rgb(163 177 201)", 
-                    }}
-                    onClick={handleClick}
-                />
-            </Scroll>}
+            {isScroll && 
+                <Scroll onClick={handleClick}>
+                    <Icon/>
+                </Scroll>
+            }
         </>
 
     );
