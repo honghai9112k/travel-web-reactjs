@@ -6,4 +6,5 @@ export const ColorData = [
     {id:'pink', color:'#f76570', colorLinear:'#f78d65'},
     {id:'brower', color: '#f3a46b' ,colorLinear: '#f3c96b'},
     {id:'blue', color: '#14b9d5' ,colorLinear: '#14d5b1'},
+    {id:'redWeak', color: '#e27557' },
   ]

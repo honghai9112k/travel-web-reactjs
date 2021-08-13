@@ -9,7 +9,6 @@ import {ColorData} from '../../data/ColorData'
 const BaseContainer =css`
     background-color: #fff;
     float: left;
-    font-family: 'Poppins', sans-serif;
  `
 
 const CardContainer = styled.div`
